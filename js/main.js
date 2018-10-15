@@ -9,17 +9,18 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 function clickedButton(element) {
     recognition.start();
+    console.log('Ready to receiva a voice input');
     // element.nextSibling.nextSibling.innerHTML = "I changed This :)";
     recognition.onresult = function (event) {
         var color = event.results[0][0].transcript;
-        element.nextSibling.nextSibling.textContent = 'Result received: ' + color;
+        element.nextSibling.nextSibling.innerHTML = 'Result received: ' + color;
         bg.style.backgroundColor = color;
     }
-
 }
 var diagnostic = document.querySelector('.output');
 var bg = document.querySelector('html');
 
+//
 // document.body.onclick = function() {
 //   recognition.start();
 //   console.log('Ready to receive a color command.');
